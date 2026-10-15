@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="consultingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="90" fill="url(#consultingGradient)" opacity="0.1"/>
+  
+  <!-- Main Icon - Users/Team -->
+  <g transform="translate(100, 100)">
+    <!-- Person 1 -->
+    <circle cx="-15" cy="-10" r="8" fill="url(#consultingGradient)" opacity="0.8"/>
+    <rect x="-20" y="2" width="10" height="15" rx="5" fill="url(#consultingGradient)" opacity="0.8"/>
+    
+    <!-- Person 2 -->
+    <circle cx="15" cy="-10" r="8" fill="url(#consultingGradient)" opacity="0.8"/>
+    <rect x="10" y="2" width="10" height="15" rx="5" fill="url(#consultingGradient)" opacity="0.8"/>
+    
+    <!-- Connection/Collaboration Line -->
+    <line x1="-15" y1="0" x2="15" y2="0" stroke="url(#consultingGradient)" stroke-width="2" opacity="0.6"/>
+    
+    <!-- Idea/Lightbulb -->
+    <circle cx="0" cy="-25" r="4" fill="url(#consultingGradient)" opacity="0.6"/>
+    <rect x="-1" y="-18" width="2" height="6" fill="url(#consultingGradient)" opacity="0.6"/>
+  </g>
+  
+  <!-- Decorative Elements -->
+  <circle cx="50" cy="50" r="2" fill="url(#consultingGradient)" opacity="0.4"/>
+  <circle cx="150" cy="50" r="2" fill="url(#consultingGradient)" opacity="0.4"/>
+  <circle cx="50" cy="150" r="2" fill="url(#consultingGradient)" opacity="0.4"/>
+  <circle cx="150" cy="150" r="2" fill="url(#consultingGradient)" opacity="0.4"/>
+</svg>

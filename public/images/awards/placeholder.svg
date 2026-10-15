@@ -1,0 +1,48 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#fefce8"/>
+  
+  <!-- Border -->
+  <rect x="10" y="10" width="380" height="280" fill="none" stroke="#fbbf24" stroke-width="2"/>
+  
+  <!-- Inner Border -->
+  <rect x="20" y="20" width="360" height="260" fill="none" stroke="#f59e0b" stroke-width="1"/>
+  
+  <!-- Trophy Icon -->
+  <g transform="translate(175, 70)">
+    <!-- Trophy Cup -->
+    <path d="M15 25 L35 25 L35 35 Q35 45 25 45 Q15 45 15 35 Z" fill="#f59e0b" opacity="0.3"/>
+    <!-- Trophy Base -->
+    <rect x="20" y="45" width="10" height="8" fill="#f59e0b" opacity="0.5"/>
+    <rect x="18" y="53" width="14" height="4" fill="#f59e0b" opacity="0.7"/>
+    <!-- Trophy Handles -->
+    <path d="M10 30 Q5 30 5 35 Q5 40 10 40" stroke="#f59e0b" stroke-width="2" fill="none"/>
+    <path d="M40 30 Q45 30 45 35 Q45 40 40 40" stroke="#f59e0b" stroke-width="2" fill="none"/>
+    <!-- Star on trophy -->
+    <path d="M25 32 L26 35 L29 35 L27 37 L28 40 L25 38 L22 40 L23 37 L21 35 L24 35 Z" fill="#fbbf24"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="180" text-anchor="middle" fill="#92400e" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+    荣誉奖项
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="200" y="200" text-anchor="middle" fill="#a16207" font-family="Arial, sans-serif" font-size="12">
+    请上传实际奖项图片
+  </text>
+  
+  <!-- Decorative Stars -->
+  <g fill="#fbbf24" opacity="0.4">
+    <path d="M60 60 L61 63 L64 63 L62 65 L63 68 L60 66 L57 68 L58 65 L56 63 L59 63 Z"/>
+    <path d="M340 60 L341 63 L344 63 L342 65 L343 68 L340 66 L337 68 L338 65 L336 63 L339 63 Z"/>
+    <path d="M60 240 L61 243 L64 243 L62 245 L63 248 L60 246 L57 248 L58 245 L56 243 L59 243 Z"/>
+    <path d="M340 240 L341 243 L344 243 L342 245 L343 248 L340 246 L337 248 L338 245 L336 243 L339 243 Z"/>
+  </g>
+  
+  <!-- Ribbon -->
+  <g transform="translate(320, 40)">
+    <path d="M0 0 L20 0 L15 10 L20 20 L0 20 L5 10 Z" fill="#f59e0b" opacity="0.6"/>
+    <text x="10" y="13" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8" font-weight="bold">奖</text>
+  </g>
+</svg>

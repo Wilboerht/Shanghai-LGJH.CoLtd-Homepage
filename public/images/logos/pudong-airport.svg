@@ -1,0 +1,21 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="24" cy="24" r="24" fill="#1e40af"/>
+
+  <!-- 飞机图标 -->
+  <g fill="white">
+    <!-- 机身 -->
+    <path d="M24 8L26 18L34 20L32 24L34 28L26 30L24 40L22 30L14 28L16 24L14 20L22 18L24 8Z"/>
+    <!-- 机翼装饰 -->
+    <circle cx="24" cy="24" r="2" fill="#1e40af"/>
+  </g>
+
+  <!-- 跑道线条 -->
+  <g stroke="white" stroke-width="1" opacity="0.6">
+    <line x1="6" y1="36" x2="18" y2="36" stroke-dasharray="2,1"/>
+    <line x1="30" y1="36" x2="42" y2="36" stroke-dasharray="2,1"/>
+  </g>
+
+  <!-- 浦东标识 -->
+  <text x="24" y="44" text-anchor="middle" fill="white" font-size="6" font-weight="bold" font-family="Arial, sans-serif">PVG</text>
+</svg>

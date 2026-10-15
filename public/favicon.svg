@@ -1,0 +1,30 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="临港景鸿安防科技 Logo">
+  <!-- Security shield -->
+  <path
+    d="M12 2 L4 6 L4 12 C4 16.5 7 20.26 12 22 C17 20.26 20 16.5 20 12 L20 6 L12 2 Z"
+    fill="#000000"
+    fillOpacity="0.1"
+    stroke="#000000"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+
+  <!-- Security checkmark -->
+  <path
+    d="M9 12 L11 14 L15 10"
+    stroke="#000000"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    fill="none"
+  />
+
+  <!-- Security dot indicator -->
+  <circle
+    cx="12"
+    cy="8"
+    r="1.5"
+    fill="#000000"
+  />
+</svg>

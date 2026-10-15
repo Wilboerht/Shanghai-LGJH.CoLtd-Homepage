@@ -1,0 +1,56 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="defaultBgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle tech pattern -->
+    <radialGradient id="defaultTechGradient" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#64748b;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:0.05" />
+    </radialGradient>
+    
+    <!-- Grid pattern -->
+    <pattern id="defaultGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#475569" stroke-width="0.2" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="1920" height="1080" fill="url(#defaultBgGradient)"/>
+  
+  <!-- Grid overlay -->
+  <rect width="1920" height="1080" fill="url(#defaultGrid)"/>
+  
+  <!-- Tech gradient overlay -->
+  <rect width="1920" height="1080" fill="url(#defaultTechGradient)"/>
+  
+  <!-- Minimal tech elements -->
+  <!-- Top left -->
+  <g transform="translate(300, 250)" opacity="0.2">
+    <rect x="0" y="0" width="40" height="40" rx="6" fill="none" stroke="#64748b" stroke-width="1"/>
+  </g>
+  
+  <!-- Top right -->
+  <g transform="translate(1500, 200)" opacity="0.2">
+    <circle cx="0" cy="0" r="25" fill="none" stroke="#64748b" stroke-width="1"/>
+  </g>
+  
+  <!-- Bottom left -->
+  <g transform="translate(250, 800)" opacity="0.15">
+    <rect x="0" y="0" width="50" height="50" rx="8" fill="none" stroke="#64748b" stroke-width="1"/>
+  </g>
+  
+  <!-- Bottom right -->
+  <g transform="translate(1550, 850)" opacity="0.2">
+    <rect x="0" y="0" width="35" height="35" rx="5" fill="none" stroke="#64748b" stroke-width="1"/>
+  </g>
+  
+  <!-- Center subtle element -->
+  <g transform="translate(960, 540)" opacity="0.1">
+    <rect x="-100" y="-50" width="200" height="100" rx="10" fill="none" stroke="#64748b" stroke-width="1"/>
+  </g>
+</svg>

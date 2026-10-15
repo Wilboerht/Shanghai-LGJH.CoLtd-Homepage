@@ -1,0 +1,100 @@
+# LGJH Homepage - 生产环境 Docker Compose 配置
+#
+# 包含完整的生产环境配置：
+# - Next.js 应用
+# - SQLite 数据库
+# - Redis 缓存
+# - Nginx 反向代理
+#
+# 使用方法:
+# 1. 复制 .env.production.example 到 .env.production 并配置
+# 2. 复制 nginx.conf.example 到 nginx.conf 并配置域名
+# 3. 运行: docker-compose -f docker-compose.production.yml up -d
+
+version: '3.8'
+
+services:
+  # 主应用服务
+  app:
+    build:
+      context: ../../
+      dockerfile: Dockerfile
+    container_name: lgjh-homepage
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=file:./prisma/dev.db
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+      - NEXTAUTH_URL=${NEXTAUTH_URL}
+      - PORT=3100
+      - BLOB_READ_WRITE_TOKEN=${BLOB_READ_WRITE_TOKEN:-}
+      - RESEND_API_KEY=${RESEND_API_KEY:-}
+      - GOOGLE_ANALYTICS_ID=${GOOGLE_ANALYTICS_ID:-}
+    volumes:
+      # 数据持久化
+      - ../../prisma:/app/prisma
+      - ../../public/uploads:/app/public/uploads
+      - ../../logs:/app/logs
+    depends_on:
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test:
+        ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3000/api/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - lgjh-network
+
+  # Redis 缓存
+  redis:
+    image: redis:7-alpine
+    container_name: lgjh-redis
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - lgjh-network
+
+  # Nginx 反向代理
+  nginx:
+    image: nginx:alpine
+    container_name: lgjh-nginx
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ../configs/nginx.conf.example:/etc/nginx/nginx.conf:ro
+      - ../configs/ssl:/etc/nginx/ssl:ro
+      - nginx_logs:/var/log/nginx
+      # 挂载上传文件目录，让Nginx可以直接提供静态文件
+      - ../../public/uploads:/app/public/uploads:ro
+    depends_on:
+      app:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - lgjh-network
+
+volumes:
+  redis_data:
+    driver: local
+  nginx_logs:
+    driver: local
+
+networks:
+  lgjh-network:
+    driver: bridge

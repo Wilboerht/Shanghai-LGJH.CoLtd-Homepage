@@ -1,0 +1,372 @@
+/* 人才库页面专用样式 - 简洁版本 */
+
+/* 强制保持滚动条可见 */
+html {
+  overflow-y: scroll !important;
+}
+
+body {
+  overflow-y: scroll !important;
+}
+
+/* 修复Select组件导致的滚动条消失问题 */
+[data-radix-popper-content-wrapper] {
+  z-index: 9999 !important;
+}
+
+/* 确保Select下拉菜单不影响页面滚动 */
+[data-radix-select-content] {
+  z-index: 9999 !important;
+}
+
+/* 防止模态层影响滚动条 */
+[data-radix-portal] {
+  pointer-events: none;
+}
+
+[data-radix-portal] > * {
+  pointer-events: auto;
+}
+
+/* 简洁的统计卡片 */
+.stats-card {
+  transition: all 0.2s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 简洁的表格样式 */
+.talent-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.talent-table th {
+  font-weight: 500;
+  user-select: none;
+  vertical-align: middle;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.talent-table th:hover {
+  background-color: #f9fafb;
+}
+
+.talent-table td {
+  vertical-align: middle;
+  text-align: center;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* 表格行样式 */
+.table-row {
+  transition: all 0.15s ease;
+}
+
+.table-row:hover {
+  background-color: #f8fafc !important;
+}
+
+.table-row:hover td {
+  background-color: #f8fafc;
+}
+
+/* 奇偶行颜色 */
+.table-row:nth-child(even) td {
+  background-color: #fafafa;
+}
+
+.table-row:nth-child(even):hover td {
+  background-color: #f0f9ff;
+}
+
+/* 排序图标样式 */
+.sort-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sort-header:hover {
+  color: #3b82f6;
+}
+
+.sort-icon {
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.sort-header:hover .sort-icon {
+  opacity: 1;
+}
+
+.sort-active .sort-icon {
+  opacity: 1;
+  color: #3b82f6;
+}
+
+/* 状态徽章样式优化 */
+.availability-badge {
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.availability-available {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+}
+
+.availability-contacted {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.availability-busy {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+}
+
+.availability-not-looking {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+  color: white;
+  box-shadow: 0 2px 4px rgba(107, 114, 128, 0.3);
+}
+
+.availability-blacklist {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.3);
+}
+
+/* 评级星星动画 */
+.rating-star {
+  transition: all 0.2s ease;
+}
+
+.rating-star:hover {
+  transform: scale(1.1);
+}
+
+/* 搜索框聚焦效果 */
+.search-input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
+}
+
+/* 筛选器样式 */
+.filter-select {
+  transition: all 0.2s ease;
+}
+
+.filter-select:hover {
+  border-color: #3b82f6;
+}
+
+/* 人才卡片内容区域 */
+.talent-info-section {
+  border-left: 3px solid #e5e7eb;
+  padding-left: 1rem;
+  margin-left: 0.5rem;
+}
+
+.talent-info-section.priority {
+  border-left-color: #3b82f6;
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.05), transparent);
+}
+
+/* 操作按钮组 */
+.action-buttons {
+  gap: 0.5rem;
+}
+
+.action-buttons .btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border: none;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.action-buttons .btn-primary:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.action-buttons .btn-secondary {
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.action-buttons .btn-secondary:hover {
+  border-color: #3b82f6;
+  background: #f8fafc;
+  color: #3b82f6;
+}
+
+/* 分页样式 */
+.pagination-container {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 加载状态 */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 表格响应式优化 */
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 表格单元格样式 */
+.table-cell-name {
+  min-width: 120px;
+}
+
+.table-cell-contact {
+  min-width: 200px;
+}
+
+.table-cell-company {
+  min-width: 150px;
+}
+
+.table-cell-position {
+  min-width: 150px;
+}
+
+.table-cell-tags {
+  min-width: 120px;
+}
+
+.table-cell-actions {
+  min-width: 120px;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-container > * {
+    width: 100%;
+  }
+
+  .table-container {
+    font-size: 0.875rem;
+  }
+
+  .talent-table th,
+  .talent-table td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 深色模式优化 */
+@media (prefers-color-scheme: dark) {
+  .talent-card {
+    border-color: #374151;
+    background: #1f2937;
+  }
+  
+  .talent-card:hover {
+    border-color: #3b82f6;
+    background: #111827;
+  }
+  
+  .talent-info-section {
+    border-left-color: #4b5563;
+  }
+  
+  .talent-info-section.priority {
+    border-left-color: #3b82f6;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent);
+  }
+  
+  .pagination-container {
+    background: #1f2937;
+    border: 1px solid #374151;
+  }
+  
+  .action-buttons .btn-secondary {
+    background: #374151;
+    border-color: #4b5563;
+    color: #d1d5db;
+  }
+  
+  .action-buttons .btn-secondary:hover {
+    background: #4b5563;
+    border-color: #3b82f6;
+    color: #3b82f6;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .action-buttons,
+  .filter-container,
+  .pagination-container {
+    display: none;
+  }
+  
+  .talent-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}

@@ -1,0 +1,69 @@
+# LGJH Homepage - Docker Compose 配置
+#
+# 数据库: SQLite (文件数据库)
+# 缓存: Redis (可选)
+# 反向代理: Nginx (可选)
+#
+# 使用方法:
+# 1. 复制 .env.example 到 .env.production 并配置环境变量
+# 2. 运行: docker-compose up -d
+# 3. 访问: http://localhost:3100
+
+version: '3.8'
+
+services:
+  # 主应用服务 (Next.js + SQLite)
+  app:
+    build:
+      context: ../../
+      dockerfile: Dockerfile
+    container_name: lgjh-homepage
+    ports:
+      - '3100:3000'
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=file:./prisma/dev.db
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET:-lgjh-cms-secret-key-change-in-production-2024}
+      - NEXTAUTH_URL=${NEXTAUTH_URL:-http://localhost:3100}
+      - PORT=3000
+    volumes:
+      # SQLite 数据库文件目录 (重要: 数据持久化)
+      - ../../prisma:/app/prisma
+      # 上传文件目录 (重要: 文件持久化)
+      - ../../public/uploads:/app/public/uploads
+      # 日志目录
+      - ../../logs:/app/logs
+    healthcheck:
+      test:
+        ['CMD', 'wget', '--no-verbose', '--tries=1', '--spider', 'http://localhost:3000/api/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  # Redis 缓存 (可选 - 用于会话存储和缓存)
+  redis:
+    image: redis:7-alpine
+    container_name: lgjh-redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    profiles:
+      - with-redis
+
+volumes:
+  redis_data:
+    driver: local
+
+networks:
+  default:
+    name: lgjh-network
